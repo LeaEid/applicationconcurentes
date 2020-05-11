@@ -10,10 +10,14 @@ package net.cofares.ljug.moniteurs;
  */
 public class Exemple {
     public static void main(String ...args) {
-        Runnable paire = new Compteur2En2(0, 100);
-        Runnable impaire = new Compteur2En2(1, 100);
+        Runnable paire = new Compteur2En2(0, 100, true);// start idx, end idx, isEvenThread
+        Runnable impaire = new Compteur2En2(1, 100, false); // start idx, end idx, isEvenThread
         
         Thread t1=new Thread(paire, "paire");
         Thread t2=new Thread(impaire, "impaire");
+//        paire.run();
+//        impaire.run();
+        t1.start(); 
+        t2.start();
     }
 }
